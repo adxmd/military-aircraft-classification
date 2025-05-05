@@ -1,6 +1,6 @@
 # Military Aircraft Image Classification  
 **COMP 4107 - Neural Networks Final Project**  
-**Author:** Adam David  
+**Author:** [Adam David](https://www.adamdavid.dev)  
 
 
 ---
