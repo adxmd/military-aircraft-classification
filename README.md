@@ -90,7 +90,7 @@ military-aircraft-classification/
 - Batch Sizes Tested: **16 and 32**
 ---
 
-## Results of EfficientNetB3 after 14 epochs
+## 📊 Results of unfrozen EfficientNetB3 trained for 14 epochs
 - Training Accuracy: **98.5%**
 - Training Loss: **0.14**
 - Testing Accuracy: **95.5%**
