@@ -6,7 +6,7 @@
 ---
 
 ## Overview
-The goal of this project is to classify images of military aircraft into 80 distinct classes using deep learning. I leverage CNN-based architectures such as EfficientNetB3, ResNet50, and MobileNetV2 as base models due to their high accuracy on the ImageNet dataset. I will use the dataset from Kaggle's *Military Aircraft Detection Dataset*, and all models are built using Tensorflow/Keras. The models are trained both with the base models as frozen feature extractors and while the base models are fully trainable. 
+The goal of this project is to classify images of military aircraft into 80 distinct classes using deep learning. This project leverages CNN-based architectures such as EfficientNetB3, ResNet50, and MobileNetV2 as base models due to their high accuracy on the ImageNet dataset. This project uses the dataset from Kaggle's *Military Aircraft Detection Dataset*, and all models are built using Tensorflow/Keras. The models are trained both with the base models as frozen feature extractors and while the base models are fully trainable. 
 <!--
 Due to hardware limitations (no access to a GPU), the object detection component was not implemented, but future work is planned to incorporate YOLO or EfficientDet for localization.
 -->
@@ -22,6 +22,28 @@ Due to hardware limitations (no access to a GPU), the object detection component
     
   - **MatPlotLib**: Create visualizations for results data
 
+---
+
+---
+
+## Project Structure
+
+```
+military-aircraft-classification/
+├── images/                                            # Reformatted and structured dataset
+│   └── 33,872 .jpg images                             # Images
+├── labels.txt/                                        # Class label mappings
+├── savedModels/                                       # Saved model weights and architectures
+│   └── various saved models
+├── results/                                           # Accuracy/Loss plots
+│   ├── batchSize16_frozen_training_accuracy_loss.png
+│   ├── batchSize32_frozen_training_accuracy_loss.png
+│   └── batchSize_vs_frozen_test_accuracy_loss_.png
+├── README.md                                          # Project overview and documentation
+├── classification.py                                  # Main script, contains training, evaluation, data generator, and architecture definitions
+├── results.py                                         # Results script, used to visualize the results
+└── requirements.txt                                   # Python dependencies
+```
 ---
 
 ## Dataset  
@@ -65,12 +87,16 @@ Due to hardware limitations (no access to a GPU), the object detection component
   - Loss: **Categorical Cross-Entropy**  
   - Evaluation metrics: Accuracy & Loss over epochs  
 
-- **Batch Sizes Tested:** 16 and 32  
+- Batch Sizes Tested: **16 and 32**
 ---
 
+## Results of EfficientNetB3 after 14 epochs
+- Training Accuracy: **98.5%**
+- Training Loss: **0.14**
+- Testing Accuracy: **95.5%**
+- Testing Loss: **0.265**
 
-
-## 📊 Results of *unfrozen* models after 5 epochs
+## 📊 Results of *unfrozen* models trained for 5 epochs
 
 | Model             | Train Acc  | Test Acc | Batch Size | Notes                        |
 |------------------|----------------------|----------|------------|------------------------------|
@@ -79,7 +105,7 @@ Due to hardware limitations (no access to a GPU), the object detection component
 | MobileNetV2       | 83%                  | 65%      | 16         | Fastest but lowest accuracy  |
 
 
-## 📊 Results of *frozen* models after 5 epochs
+## 📊 Results of *frozen* models trained for 5 epochs
 
 **Training**
 ![alt text](https://github.com/adxmd/military-aircraft-classification/blob/main/results/batchSize16_frozen_training_accuracy_loss.png?raw=true)
